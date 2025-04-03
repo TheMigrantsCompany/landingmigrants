@@ -1,7 +1,14 @@
 import Image from "next/image";
 
+interface Testimonial {
+  name: string;
+  role: string;
+  content: string;
+  image: string;
+}
+
 export function Testimonials() {
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     {
       name: "Ana García",
       role: "CEO, Turismo Ushuaia",
@@ -19,10 +26,12 @@ export function Testimonials() {
   ];
 
   return (
-    <section className="py-20 bg-[#3B1C32]">
+    <section 
+      className="py-20 bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D]"
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Lo que dicen mis clientes
+          Lo Que Dicen Nuestros Clientes
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (

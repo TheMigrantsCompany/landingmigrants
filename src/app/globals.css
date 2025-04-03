@@ -1,30 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary-900: #1A1A1D;
-  --color-primary-800: #3B1C32;
-  --color-primary-600: #6A1E55;
-  --color-primary-400: #A64D79;
+  --color-primary-900: #1a1a1d;
+  --color-primary-800: #3b1c32;
+  --color-primary-600: #6a1e55;
+  --color-primary-400: #a64d79;
   --background: var(--color-primary-900);
   --foreground: #ffffff;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+section {
+  position: relative;
+}
+
+/* Efecto de transición superior */
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 29, 0.8) 0%,
+    rgba(26, 26, 29, 0.4) 40%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Efecto de transición inferior */
+section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(
+    to top,
+    rgba(26, 26, 29, 0.8) 0%,
+    rgba(26, 26, 29, 0.4) 40%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Excluir el Hero del efecto superior */
+section:first-of-type::before {
+  display: none;
+}
+
+/* Excluir la última sección del efecto inferior */
+section:last-of-type::after {
+  display: none;
+}
+
+/* Ajuste para el contenido */
+section > div {
+  position: relative;
+  z-index: 2;
 }

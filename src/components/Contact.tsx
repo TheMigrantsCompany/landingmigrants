@@ -1,12 +1,34 @@
+"use client";
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export function Contact() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data: FormData = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+    console.log(data);
+  };
+
   return (
-    <section id="contacto" className="py-20 bg-[#1A1A1D]">
+    <section
+      id="contacto"
+      className="py-20 bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D]"
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">
           Contacto
         </h2>
         <div className="max-w-2xl mx-auto">
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label
                 htmlFor="name"

@@ -1,7 +1,15 @@
 import Image from "next/image";
 
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
+}
+
 export function Portfolio() {
-  const projects = [
+  const projects: Project[] = [
     {
       title: "E-commerce Turismo Ushuaia",
       description: "Plataforma de comercio electrónico para agencia de turismo",
@@ -20,7 +28,10 @@ export function Portfolio() {
   ];
 
   return (
-    <section id="portfolio" className="py-20 bg-[#1A1A1D]">
+    <section
+      id="portfolio"
+      className="py-20 bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D]"
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">
           Proyectos Destacados

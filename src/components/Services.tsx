@@ -5,8 +5,14 @@ import {
   IconDeviceMobile,
 } from "@tabler/icons-react";
 
+interface Service {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
 export function Services() {
-  const services = [
+  const services: Service[] = [
     {
       icon: <IconCode size={40} />,
       title: "Desarrollo Web",
@@ -32,10 +38,13 @@ export function Services() {
   ];
 
   return (
-    <section id="servicios" className="py-20 bg-[#3B1C32]">
+    <section
+      id="servicios"
+      className="py-20 bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D]"
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Mis Servicios
+          Nuestros Servicios
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
