@@ -38,6 +38,14 @@ export function Hero() {
     { size: "w-12 h-12", color: "bg-[#A64D79]/20", x: -200, y: -200 },
   ];
 
+  // Precalcula los transforms para cada elemento decorativo
+  const decorativeTransforms = decorativeElements.map((element) => ({
+    x: useTransform(springX, [-0.5, 0.5], [element.x * -1, element.x]),
+    y: useTransform(springY, [-0.5, 0.5], [element.y * -1, element.y]),
+    color: element.color,
+    size: element.size,
+  }));
+
   const buttonProps: HeroButton = {
     text: "Hablemos de tu proyecto",
     onClick: () => {
@@ -56,22 +64,14 @@ export function Hero() {
       <div className="container mx-auto px-4 py-20">
         <div className="flex flex-col items-center text-center relative">
           {/* Elementos decorativos con parallax */}
-          {decorativeElements.map((element, index) => (
+          {decorativeTransforms.map((t, index) => (
             <motion.div
               key={index}
-              className={`absolute ${element.size} rounded-full blur-2xl -z-10`}
+              className={`absolute ${t.size} rounded-full blur-2xl -z-10`}
               style={{
-                background: element.color,
-                x: useTransform(
-                  springX,
-                  [-0.5, 0.5],
-                  [element.x * -1, element.x]
-                ),
-                y: useTransform(
-                  springY,
-                  [-0.5, 0.5],
-                  [element.y * -1, element.y]
-                ),
+                background: t.color,
+                x: t.x,
+                y: t.y,
               }}
             />
           ))}
