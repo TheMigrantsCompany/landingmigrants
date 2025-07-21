@@ -30,7 +30,9 @@ export function Navbar() {
   return (
     <nav className="fixed w-full bg-[#1A1A1D]/80 backdrop-blur-sm z-50 py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold text-white">Tu Logo</h1>
+        <h1 className="text-base font-normal text-gray-300">
+          Iara Baudino Web Developer
+        </h1>
         <div className="flex gap-6">
           {links.map((link, index) => (
             <a
