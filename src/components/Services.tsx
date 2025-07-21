@@ -6,7 +6,6 @@ import {
   IconBrandShopee,
   IconSettings,
 } from "@tabler/icons-react";
-import { useState } from "react";
 
 interface Service {
   icon: React.ReactNode;
