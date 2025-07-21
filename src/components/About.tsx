@@ -10,7 +10,11 @@ export function About() {
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2 flex justify-center items-center">
+          {/* Título solo visible arriba de la foto en mobile */}
+          <h2 className="text-4xl font-bold mb-6 text-white block md:hidden order-1">
+            Sobre Mí
+          </h2>
+          <div className="md:w-1/2 flex justify-center items-center order-2 md:order-1">
             <div className="flex justify-center items-center w-full h-[400px]">
               <Image
                 src="/imagen portfolio 1.jpg"
@@ -22,8 +26,11 @@ export function About() {
               />
             </div>
           </div>
-          <div className="md:w-1/2">
-            <h2 className="text-4xl font-bold mb-6 text-white">Sobre Mí</h2>
+          <div className="md:w-1/2 order-3 md:order-2">
+            {/* Título solo visible en desktop */}
+            <h2 className="text-4xl font-bold mb-6 text-white hidden md:block">
+              Sobre Mí
+            </h2>
             <p className="text-gray-300 mb-6 text-lg whitespace-pre-line">
               Soy Iara Baudino, desarrolladora web con una fuerte sensibilidad
               visual y una mentalidad orientada a lo funcional. Combino diseño y

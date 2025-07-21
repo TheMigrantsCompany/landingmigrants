@@ -142,3 +142,8 @@ section > div {
     );
   mask-composite: intersect;
 }
+
+.menu-lateral-opaco {
+  background: #1a1a1d !important;
+  opacity: 1 !important;
+}
