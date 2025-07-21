@@ -38,13 +38,47 @@ export function Hero() {
     { size: "w-12 h-12", color: "bg-[#A64D79]/20", x: -200, y: -200 },
   ];
 
-  // Precalcula los transforms para cada elemento decorativo
-  const decorativeTransforms = decorativeElements.map((element) => ({
-    x: useTransform(springX, [-0.5, 0.5], [element.x * -1, element.x]),
-    y: useTransform(springY, [-0.5, 0.5], [element.y * -1, element.y]),
-    color: element.color,
-    size: element.size,
-  }));
+  // Precalcula los transforms para cada elemento decorativo (uno por uno)
+  const deco0x = useTransform(
+    springX,
+    [-0.5, 0.5],
+    [decorativeElements[0].x * -1, decorativeElements[0].x]
+  );
+  const deco0y = useTransform(
+    springY,
+    [-0.5, 0.5],
+    [decorativeElements[0].y * -1, decorativeElements[0].y]
+  );
+  const deco1x = useTransform(
+    springX,
+    [-0.5, 0.5],
+    [decorativeElements[1].x * -1, decorativeElements[1].x]
+  );
+  const deco1y = useTransform(
+    springY,
+    [-0.5, 0.5],
+    [decorativeElements[1].y * -1, decorativeElements[1].y]
+  );
+  const deco2x = useTransform(
+    springX,
+    [-0.5, 0.5],
+    [decorativeElements[2].x * -1, decorativeElements[2].x]
+  );
+  const deco2y = useTransform(
+    springY,
+    [-0.5, 0.5],
+    [decorativeElements[2].y * -1, decorativeElements[2].y]
+  );
+  const deco3x = useTransform(
+    springX,
+    [-0.5, 0.5],
+    [decorativeElements[3].x * -1, decorativeElements[3].x]
+  );
+  const deco3y = useTransform(
+    springY,
+    [-0.5, 0.5],
+    [decorativeElements[3].y * -1, decorativeElements[3].y]
+  );
 
   // Precalcula los transforms para los círculos animados de fondo
   const bgCircle1X = useTransform(springX, [-0.5, 0.5], [-150, 150]);
@@ -72,17 +106,38 @@ export function Hero() {
       <div className="container mx-auto px-4 py-20">
         <div className="flex flex-col items-center text-center relative">
           {/* Elementos decorativos con parallax */}
-          {decorativeTransforms.map((t, index) => (
-            <motion.div
-              key={index}
-              className={`absolute ${t.size} rounded-full blur-2xl -z-10`}
-              style={{
-                background: t.color,
-                x: t.x,
-                y: t.y,
-              }}
-            />
-          ))}
+          <motion.div
+            className={`absolute ${decorativeElements[0].size} rounded-full blur-2xl -z-10`}
+            style={{
+              background: decorativeElements[0].color,
+              x: deco0x,
+              y: deco0y,
+            }}
+          />
+          <motion.div
+            className={`absolute ${decorativeElements[1].size} rounded-full blur-2xl -z-10`}
+            style={{
+              background: decorativeElements[1].color,
+              x: deco1x,
+              y: deco1y,
+            }}
+          />
+          <motion.div
+            className={`absolute ${decorativeElements[2].size} rounded-full blur-2xl -z-10`}
+            style={{
+              background: decorativeElements[2].color,
+              x: deco2x,
+              y: deco2y,
+            }}
+          />
+          <motion.div
+            className={`absolute ${decorativeElements[3].size} rounded-full blur-2xl -z-10`}
+            style={{
+              background: decorativeElements[3].color,
+              x: deco3x,
+              y: deco3y,
+            }}
+          />
 
           {/* Círculos animados de fondo con más visibilidad */}
           <motion.div
