@@ -65,7 +65,6 @@ export function Services() {
         "Mejoras de seguridad",
         "Respaldos automáticos",
         "Soporte técnico",
-        "Monitoreo 24/7",
       ],
     },
   ];
