@@ -16,8 +16,6 @@ interface Service {
 }
 
 export function Services() {
-  const [hoveredService, setHoveredService] = useState<number | null>(null);
-
   const services: Service[] = [
     {
       icon: <IconFileText size={40} />,

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -10,7 +9,6 @@ interface HeroButton {
 }
 
 export function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -24,7 +22,6 @@ export function Hero() {
       const { innerWidth, innerHeight } = window;
       const x = clientX / innerWidth - 0.5;
       const y = clientY / innerHeight - 0.5;
-      setMousePosition({ x, y });
       mouseX.set(x);
       mouseY.set(y);
     };
