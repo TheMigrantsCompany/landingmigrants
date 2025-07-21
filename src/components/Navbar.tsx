@@ -7,7 +7,7 @@ interface NavLink {
 
 export function Navbar() {
   const links: NavLink[] = [
-    { href: "#about", text: "Sobre Nosotras" },
+    { href: "#about", text: "Sobre Mí" },
     { href: "#servicios", text: "Servicios" },
     { href: "#portfolio", text: "Portfolio" },
     { href: "#contacto", text: "Contacto" },

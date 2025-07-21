@@ -1,30 +1,37 @@
+"use client";
+
 import Image from "next/image";
+import { useRef, useState } from "react";
 
 interface Project {
   title: string;
   description: string;
   image: string;
-  tags: string[];
+  videoUrl?: string; // URL del video (opcional)
   link: string;
 }
 
 export function Portfolio() {
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
   const projects: Project[] = [
     {
-      title: "E-commerce Turismo Ushuaia",
-      description: "Plataforma de comercio electrónico para agencia de turismo",
-      image: "/next.svg", // Temporalmente usando next.svg
-      tags: ["Next.js", "TypeScript", "Tailwind"],
-      link: "#",
+      title: "Meru Viajes",
+      description:
+        "Sitio web de servicios turísticos con base en Ushuaia. Permite la venta de servicios, reservas online y pagos a través de una pasarela segura. Incluye un panel de autogestión para administrar fácilmente el contenido y las reservas.",
+      image: "/project1.png",
+      videoUrl: "/meru-viajes-demo.mp4",
+      link: "https://www.meruviajes.tur.ar/",
     },
     {
-      title: "Landing Page Corporativa",
-      description: "Sitio web responsive con animaciones modernas",
-      image: "/vercel.svg", // Temporalmente usando vercel.svg
-      tags: ["React", "Framer Motion", "Tailwind"],
-      link: "#",
+      title: "Feria de Fotografía",
+      description:
+        "Página web con varias secciones y un total de 4 páginas, diseñada para un evento cultural. Incluye información, agenda, contacto y más. Cuenta con un dashboard autogestionable para actualizar el contenido de manera sencilla.",
+      image: "/headfotoferia.png",
+      videoUrl: "/feria-fotografia-demo.mp4",
+      link: "https://www.feriadefotografia.com/",
     },
-    // Puedes agregar más proyectos aquí
   ];
 
   return (
@@ -41,30 +48,44 @@ export function Portfolio() {
             <div
               key={index}
               className="bg-[#3B1C32] rounded-xl shadow-lg overflow-hidden border border-[#6A1E55]"
+              onMouseEnter={() => {
+                setHoveredProject(index);
+                if (videoRefs.current[index]) videoRefs.current[index]?.play();
+              }}
+              onMouseLeave={() => {
+                setHoveredProject(null);
+                if (videoRefs.current[index]) videoRefs.current[index]?.pause();
+              }}
             >
               <div className="relative h-64 bg-[#1A1A1D]">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-contain p-4"
-                />
+                {project.videoUrl ? (
+                  <video
+                    ref={(el) => {
+                      videoRefs.current[index] = el;
+                    }}
+                    src={project.videoUrl}
+                    className="w-full h-full object-cover"
+                    muted
+                    loop
+                    playsInline
+                    poster={project.image}
+                  >
+                    Tu navegador no soporta el elemento de video.
+                  </video>
+                ) : (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-contain p-4"
+                  />
+                )}
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 text-white">
                   {project.title}
                 </h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
-                <div className="flex gap-2 mb-4">
-                  {project.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="bg-[#1A1A1D] text-gray-300 px-3 py-1 rounded-full text-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
                 <a
                   href={project.link}
                   className="text-[#A64D79] hover:text-[#6A1E55] font-semibold transition-colors"

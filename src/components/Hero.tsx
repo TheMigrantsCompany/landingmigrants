@@ -43,7 +43,15 @@ export function Hero() {
 
   const buttonProps: HeroButton = {
     text: "Hablemos de tu proyecto",
-    onClick: () => console.log("Contacto clicked"),
+    onClick: () => {
+      const contactSection = document.querySelector("#contacto");
+      if (contactSection) {
+        contactSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    },
   };
 
   return (
@@ -128,14 +136,15 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-6 relative"
+            className="text-4xl md:text-5xl font-bold text-white mb-6 relative"
           >
             <motion.span
               className="inline-block"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 200 }}
             >
-              Desarrollo Web Profesional
+              Diseño y desarrollo web <br />
+              con identidad
             </motion.span>
           </motion.h1>
 
@@ -143,18 +152,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl relative"
+            className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl relative"
           >
-            Transformamos ideas en experiencias digitales excepcionales.{" "}
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              Nos especializamos en crear sitios web modernos, funcionales y
-              efectivos que potencian el crecimiento de tu negocio en el mundo
-              digital.
-            </motion.span>
+            Creo sitios y experiencias digitales a medida, que comunican,
+            funcionan y conectan. Cada proyecto es único, pensado desde lo
+            visual y lo humano, para transmitir confianza, claridad y propósito.
           </motion.p>
 
           {/* Botón con animación mejorada */}

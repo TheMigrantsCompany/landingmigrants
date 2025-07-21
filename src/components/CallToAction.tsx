@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 interface CTAContent {
   title: string;
@@ -13,13 +13,19 @@ export function CallToAction() {
     description:
       "Contacta conmigo hoy mismo y convirtamos tus ideas en realidad",
     buttonText: "Solicitar presupuesto",
-    onButtonClick: () => console.log("Presupuesto solicitado"),
+    onButtonClick: () => {
+      const contactSection = document.querySelector("#contacto");
+      if (contactSection) {
+        contactSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    },
   };
 
   return (
-    <section 
-      className="py-20 bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D]"
-    >
+    <section className="py-20 bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D]">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold text-white mb-6">{content.title}</h2>
         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
