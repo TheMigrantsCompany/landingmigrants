@@ -12,7 +12,6 @@ interface Project {
 }
 
 export function Portfolio() {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const projects: Project[] = [
@@ -49,11 +48,9 @@ export function Portfolio() {
               key={index}
               className="bg-[#3B1C32] rounded-xl shadow-lg overflow-hidden border border-[#6A1E55]"
               onMouseEnter={() => {
-                setHoveredProject(index);
                 if (videoRefs.current[index]) videoRefs.current[index]?.play();
               }}
               onMouseLeave={() => {
-                setHoveredProject(null);
                 if (videoRefs.current[index]) videoRefs.current[index]?.pause();
               }}
             >

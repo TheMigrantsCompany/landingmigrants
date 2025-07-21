@@ -34,7 +34,11 @@ export function Testimonials() {
                 </h3>
                 <p className="text-gray-400 text-sm mb-2">{testimonial.role}</p>
               </div>
-              <p className="text-gray-300 italic">"{testimonial.content}"</p>
+              <p className="text-gray-300 italic">
+                {'"'}
+                {testimonial.content}
+                {'"'}
+              </p>
             </div>
           ))}
         </div>
