@@ -46,6 +46,14 @@ export function Hero() {
     size: element.size,
   }));
 
+  // Precalcula los transforms para los círculos animados de fondo
+  const bgCircle1X = useTransform(springX, [-0.5, 0.5], [-150, 150]);
+  const bgCircle1Y = useTransform(springY, [-0.5, 0.5], [-150, 150]);
+  const bgCircle2X = useTransform(springX, [-0.5, 0.5], [200, -200]);
+  const bgCircle2Y = useTransform(springY, [-0.5, 0.5], [200, -200]);
+  const bgCircle3X = useTransform(springX, [-0.5, 0.5], [-100, 100]);
+  const bgCircle3Y = useTransform(springY, [-0.5, 0.5], [-100, 100]);
+
   const buttonProps: HeroButton = {
     text: "Hablemos de tu proyecto",
     onClick: () => {
@@ -89,8 +97,8 @@ export function Hero() {
               ease: "easeInOut",
             }}
             style={{
-              x: useTransform(springX, [-0.5, 0.5], [-150, 150]),
-              y: useTransform(springY, [-0.5, 0.5], [-150, 150]),
+              x: bgCircle1X,
+              y: bgCircle1Y,
             }}
           />
           <motion.div
@@ -105,8 +113,8 @@ export function Hero() {
               ease: "easeInOut",
             }}
             style={{
-              x: useTransform(springX, [-0.5, 0.5], [200, -200]),
-              y: useTransform(springY, [-0.5, 0.5], [200, -200]),
+              x: bgCircle2X,
+              y: bgCircle2Y,
             }}
           />
 
@@ -123,8 +131,8 @@ export function Hero() {
               ease: "easeInOut",
             }}
             style={{
-              x: useTransform(springX, [-0.5, 0.5], [-100, 100]),
-              y: useTransform(springY, [-0.5, 0.5], [-100, 100]),
+              x: bgCircle3X,
+              y: bgCircle3Y,
             }}
           />
 

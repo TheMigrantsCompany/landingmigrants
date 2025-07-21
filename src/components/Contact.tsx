@@ -66,7 +66,7 @@ Mensaje adicional: ${formData.get("message")}
       } else {
         setStatus("error");
       }
-    } catch (err) {
+    } catch {
       setStatus("error");
     }
   };
