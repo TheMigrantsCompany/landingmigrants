@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const SERVICES = [
   "Página Web Simple",
@@ -11,6 +11,7 @@ const SERVICES = [
 export function Contact() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleServiceChange = (service: string) => {
     setSelectedServices((prev) =>
@@ -34,7 +35,7 @@ Descripción: ${formData.get("description")}
 Dominio/Hosting: ${formData.get("domain")}
 Plazo estimado: ${formData.get("deadline")}
 Mensaje adicional: ${formData.get("message")}
-  `;
+    `;
 
     const cleanForm = new FormData();
     cleanForm.set("name", String(formData.get("name") || ""));
@@ -50,12 +51,17 @@ Mensaje adicional: ${formData.get("message")}
         },
       });
       if (response.ok) {
-        const formElement = e.currentTarget as HTMLFormElement;
         setStatus("success");
+        // Hacer scroll suave al inicio del formulario
+        const contactSection = document.querySelector("#contacto");
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        // Limpiar el formulario y los servicios seleccionados después de mostrar el mensaje de éxito
         setTimeout(() => {
-          formElement.reset();
+          formRef.current?.reset();
           setSelectedServices([]);
-        }, 100);
+        }, 300);
         return;
       } else {
         setStatus("error");
@@ -89,7 +95,7 @@ Mensaje adicional: ${formData.get("message")}
               nuevamente o escribime a iara.baudino.dev@gmail.com
             </div>
           )}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label
