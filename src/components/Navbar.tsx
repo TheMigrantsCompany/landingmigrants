@@ -12,6 +12,7 @@ export function Navbar() {
     { href: "#about", text: "Sobre Mí" },
     { href: "#servicios", text: "Servicios" },
     { href: "#portfolio", text: "Portfolio" },
+    { href: "#testimonials", text: "Testimonios" },
     { href: "#contacto", text: "Contacto" },
   ];
 
