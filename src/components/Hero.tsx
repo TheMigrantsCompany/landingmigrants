@@ -141,7 +141,7 @@ export function Hero() {
 
           {/* Círculos animados de fondo con más visibilidad */}
           <motion.div
-            className="fixed top-0 left-0 w-[500px] h-[500px] bg-[#A64D79]/20 rounded-full blur-[100px]"
+            className="hidden md:fixed top-0 left-0 w-[500px] h-[500px] bg-[#A64D79]/20 rounded-full blur-[100px]"
             animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 90, 0],
@@ -157,7 +157,7 @@ export function Hero() {
             }}
           />
           <motion.div
-            className="fixed top-0 right-0 w-[600px] h-[600px] bg-[#6A1E55]/15 rounded-full blur-[120px]"
+            className="hidden md:fixed top-0 right-0 w-[600px] h-[600px] bg-[#6A1E55]/15 rounded-full blur-[120px]"
             animate={{
               scale: [1.2, 1, 1.2],
               rotate: [90, 0, 90],
@@ -175,7 +175,7 @@ export function Hero() {
 
           {/* Círculo adicional para más efecto */}
           <motion.div
-            className="fixed bottom-0 left-1/2 w-[400px] h-[400px] bg-[#3B1C32]/25 rounded-full blur-[80px]"
+            className="hidden md:fixed bottom-0 left-1/2 w-[400px] h-[400px] bg-[#3B1C32]/25 rounded-full blur-[80px]"
             animate={{
               scale: [1, 1.3, 1],
               rotate: [-45, 45, -45],

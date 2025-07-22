@@ -147,3 +147,22 @@ section > div {
   background: #1a1a1d !important;
   opacity: 1 !important;
 }
+
+html,
+body {
+  background: var(--background);
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* Optimización para mobile */
+@media (max-width: 640px) {
+  section::before,
+  section::after {
+    display: none;
+  }
+  .fade-mask {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
