@@ -13,7 +13,13 @@ export function Testimonials() {
       name: "Alejandro Fábrega",
       role: "Odoo Senior Developer & Devops",
       content:
-        "Tuve la oportunidad de trabajar junto a Iara en el desarrollo de una aplicación web progresiva (PWA) pensada para integrarse de forma fluida con el CRM de Odoo 18 Enterprise. Mientras ella se encargó del desarrollo del front-end, aportando soluciones modernas, accesibles y visualmente atractivas, yo estuve a cargo del diseño y la implementación del backend, construyendo una API robusta sobre la lógica de Odoo que permitiera una comunicación eficiente, segura y escalable entre ambos sistemas.\nFue una experiencia de trabajo colaborativo muy enriquecedora, donde logramos una sinergia técnica sólida que potenció el resultado final. La claridad de Iara a la hora de interpretar requerimientos funcionales y su capacidad para traducirlos en interfaces intuitivas hizo que el proyecto fluyera de forma natural desde el inicio.",
+        "Tuve la oportunidad de trabajar junto a Iara en el desarrollo de una aplicación web progresiva (PWA) pensada para integrarse de forma fluida con el CRM de Odoo 18 Enterprise. Mientras ella se encargó del desarrollo del front-end, aportando soluciones modernas, accesibles y visualmente atractivas, yo estuve a cargo del diseño y la implementación del backend, construyendo una API robusta sobre la lógica de Odoo que permitiera una comunicación eficiente, segura y escalable entre ambos sistemas.\nFue una experiencia de trabajo colaborativo muy enriquecedora, donde logramos una sinergia técnica sólida que potenció el resultado final. La claridad de Iara a la hora de interpretar requerimientos funcionales y su capacidad para traducirlos en interfaces intuitivas hizo que el proyecto fluyera de forma natural desde el inicio.",
+    },
+    {
+      name: "Francisco",
+      role: "Meru Viajes y Turismo",
+      content:
+        'Trabajamos con Iara en la creación de la página web para mi agencia de turismo, y la experiencia fue muy satisfactoria, cumplió con los tiempos estimados en el desarrollo de la misma, y en ese periodo de tiempo incluyo en el proyecto:\n• Plataforma de pago online,\n• Que pueda filtrar por fecha, clientes y excursiones las ordenes de servicios para mejorar la productividad en la parte operativa.\n• Posibilidad de crear excursiones en pocos minutos, y modificarlos, pasarlos a estado "activo" o "inactivo" según la temporada.\nSiempre dispuesta a ayudar en consultas o dudas de funcionamiento. Y sobre todo una página eficiente, Consulten sin duda alguna, es una persona muy creativa y sobre todo laburante, y responsable con los proyectos que toma como propios.',
     },
   ];
 
