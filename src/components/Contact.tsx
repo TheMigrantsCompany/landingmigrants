@@ -2,10 +2,11 @@
 import { useState, useRef } from "react";
 
 const SERVICES = [
-  "Página Web Simple",
-  "Sitio Web Completo",
-  "Tienda Online",
-  "Mantenimiento Web",
+  "Landing Page",
+  "Sitio Institucional",
+  "Sitio con Blog",
+  "E-commerce Básico",
+  "Sitio a Medida",
 ];
 
 export function Contact() {
