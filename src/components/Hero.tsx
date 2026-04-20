@@ -32,10 +32,10 @@ export function Hero() {
 
   // Elementos decorativos que se moverán con el mouse
   const decorativeElements = [
-    { size: "w-20 h-20", color: "bg-[#A64D79]/20", x: 200, y: -300 },
-    { size: "w-16 h-16", color: "bg-[#6A1E55]/20", x: -300, y: 200 },
-    { size: "w-24 h-24", color: "bg-[#3B1C32]/20", x: 400, y: 200 },
-    { size: "w-12 h-12", color: "bg-[#A64D79]/20", x: -200, y: -200 },
+    { size: "w-20 h-20", color: "rgba(90, 77, 98, 0.06)", x: 200, y: -300 },
+    { size: "w-16 h-16", color: "rgba(90, 77, 98, 0.05)", x: -300, y: 200 },
+    { size: "w-24 h-24", color: "rgba(90, 77, 98, 0.04)", x: 400, y: 200 },
+    { size: "w-12 h-12", color: "rgba(90, 77, 98, 0.06)", x: -200, y: -200 },
   ];
 
   // Precalcula los transforms para cada elemento decorativo (uno por uno)
@@ -80,14 +80,6 @@ export function Hero() {
     [decorativeElements[3].y * -1, decorativeElements[3].y]
   );
 
-  // Precalcula los transforms para los círculos animados de fondo
-  const bgCircle1X = useTransform(springX, [-0.5, 0.5], [-150, 150]);
-  const bgCircle1Y = useTransform(springY, [-0.5, 0.5], [-150, 150]);
-  const bgCircle2X = useTransform(springX, [-0.5, 0.5], [200, -200]);
-  const bgCircle2Y = useTransform(springY, [-0.5, 0.5], [200, -200]);
-  const bgCircle3X = useTransform(springX, [-0.5, 0.5], [-100, 100]);
-  const bgCircle3Y = useTransform(springY, [-0.5, 0.5], [-100, 100]);
-
   const buttonProps: HeroButton = {
     text: "Hablemos de tu proyecto",
     onClick: () => {
@@ -102,7 +94,7 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D] pt-16 overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center bg-black pt-16 overflow-hidden">
       <div className="container mx-auto px-4 py-20">
         <div className="flex flex-col items-center text-center relative">
           {/* Elementos decorativos con parallax */}
@@ -136,58 +128,6 @@ export function Hero() {
               background: decorativeElements[3].color,
               x: deco3x,
               y: deco3y,
-            }}
-          />
-
-          {/* Círculos animados de fondo con más visibilidad */}
-          <motion.div
-            className="hidden md:fixed top-0 left-0 w-[500px] h-[500px] bg-[#A64D79]/20 rounded-full blur-[100px]"
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              x: bgCircle1X,
-              y: bgCircle1Y,
-            }}
-          />
-          <motion.div
-            className="hidden md:fixed top-0 right-0 w-[600px] h-[600px] bg-[#6A1E55]/15 rounded-full blur-[120px]"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              rotate: [90, 0, 90],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              x: bgCircle2X,
-              y: bgCircle2Y,
-            }}
-          />
-
-          {/* Círculo adicional para más efecto */}
-          <motion.div
-            className="hidden md:fixed bottom-0 left-1/2 w-[400px] h-[400px] bg-[#3B1C32]/25 rounded-full blur-[80px]"
-            animate={{
-              scale: [1, 1.3, 1],
-              rotate: [-45, 45, -45],
-            }}
-            transition={{
-              duration: 12,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              x: bgCircle3X,
-              y: bgCircle3Y,
             }}
           />
 
@@ -228,33 +168,22 @@ export function Hero() {
           >
             <motion.button
               whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 20px rgba(166, 77, 121, 0.5)",
+                scale: 1.02,
+                boxShadow: "0 0 0 1px rgba(90, 77, 98, 0.45)",
               }}
               whileTap={{ scale: 0.98 }}
               onClick={buttonProps.onClick}
-              className="bg-[#A64D79] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all relative z-10
-                hover:bg-[#6A1E55] hover:transform"
+              className="bg-[#1f1a22] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all relative z-10 border border-[#2f2838]
+                hover:bg-[#2a232e] hover:border-[#3d3545]"
             >
               {buttonProps.text}
             </motion.button>
-            {/* Efecto de brillo detrás del botón */}
-            <motion.div
-              className="absolute inset-0 bg-[#A64D79] rounded-lg blur-md -z-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0.2, 0.5, 0.2] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
           </motion.div>
         </div>
       </div>
 
       {/* Efecto de transición al final del Hero */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1A1A1D] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
     </section>
   );
 }

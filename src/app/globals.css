@@ -1,12 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary-900: #1a1a1d;
-  --color-primary-800: #3b1c32;
-  --color-primary-600: #6a1e55;
-  --color-primary-400: #a64d79;
-  --background: var(--color-primary-900);
+  /* Base: negro; violeta solo como acento oscuro */
+  --background: #000000;
   --foreground: #ffffff;
+  --surface: #0a0a0a;
+  --surface-raised: #111111;
+  --border-subtle: #252028;
+  --accent: #5a4d62;
+  --accent-hover: #6f5f78;
+  --accent-cta: #1f1a22;
+  --accent-cta-hover: #2a232e;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -67,8 +71,8 @@ section::before {
   height: 150px;
   background: linear-gradient(
     to bottom,
-    rgba(26, 26, 29, 0.8) 0%,
-    rgba(26, 26, 29, 0.4) 40%,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.35) 40%,
     transparent 100%
   );
   pointer-events: none;
@@ -85,8 +89,8 @@ section::after {
   height: 150px;
   background: linear-gradient(
     to top,
-    rgba(26, 26, 29, 0.8) 0%,
-    rgba(26, 26, 29, 0.4) 40%,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.35) 40%,
     transparent 100%
   );
   pointer-events: none;
@@ -144,7 +148,7 @@ section > div {
 }
 
 .menu-lateral-opaco {
-  background: #1a1a1d !important;
+  background: #000000 !important;
   opacity: 1 !important;
 }
 

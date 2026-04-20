@@ -25,7 +25,7 @@ export function CallToAction() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D]">
+    <section className="py-20 bg-black border-t border-[#1a181c]">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold text-white mb-6">{content.title}</h2>
         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
@@ -33,7 +33,7 @@ export function CallToAction() {
         </p>
         <button
           onClick={content.onButtonClick}
-          className="bg-[#1A1A1D] text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-[#3B1C32] transition-colors"
+          className="bg-[#1f1a22] text-white px-8 py-4 rounded-lg text-lg font-bold border border-[#2f2838] hover:bg-[#2a232e] hover:border-[#3d3545] transition-colors"
         >
           {content.buttonText}
         </button>

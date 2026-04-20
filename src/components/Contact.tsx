@@ -75,7 +75,7 @@ Mensaje adicional: ${formData.get("message")}
   return (
     <section
       id="contacto"
-      className="py-20 bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D]"
+      className="py-20 bg-black"
     >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-4 text-white">
@@ -109,7 +109,7 @@ Mensaje adicional: ${formData.get("message")}
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full px-4 py-2 bg-[#3B1C32] border border-[#6A1E55] rounded-lg focus:ring-2 focus:ring-[#A64D79] focus:border-transparent text-white"
+                  className="w-full px-4 py-2 bg-[#111111] border border-[#252028] rounded-lg focus:ring-2 focus:ring-[#4a4052]/50 focus:border-[#3d3545] text-white"
                   required
                 />
               </div>
@@ -124,7 +124,7 @@ Mensaje adicional: ${formData.get("message")}
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full px-4 py-2 bg-[#3B1C32] border border-[#6A1E55] rounded-lg focus:ring-2 focus:ring-[#A64D79] focus:border-transparent text-white"
+                  className="w-full px-4 py-2 bg-[#111111] border border-[#252028] rounded-lg focus:ring-2 focus:ring-[#4a4052]/50 focus:border-[#3d3545] text-white"
                   required
                 />
               </div>
@@ -139,7 +139,7 @@ Mensaje adicional: ${formData.get("message")}
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-4 py-2 bg-[#3B1C32] border border-[#6A1E55] rounded-lg focus:ring-2 focus:ring-[#A64D79] focus:border-transparent text-white"
+                  className="w-full px-4 py-2 bg-[#111111] border border-[#252028] rounded-lg focus:ring-2 focus:ring-[#4a4052]/50 focus:border-[#3d3545] text-white"
                 />
               </div>
               <div>
@@ -157,8 +157,8 @@ Mensaje adicional: ${formData.get("message")}
                       className={`px-4 py-2 rounded-full border transition-colors text-sm font-semibold
                         ${
                           selectedServices.includes(service)
-                            ? "bg-[#A64D79] text-white border-[#A64D79]"
-                            : "bg-[#3B1C32] text-gray-300 border-[#6A1E55] hover:bg-[#6A1E55] hover:text-white"
+                            ? "bg-[#2a232e] text-white border-[#5a4d62]"
+                            : "bg-[#111111] text-gray-300 border-[#252028] hover:bg-[#1a161d] hover:border-[#3d3545] hover:text-white"
                         }
                       `}
                       onClick={() => handleServiceChange(service)}
@@ -180,7 +180,7 @@ Mensaje adicional: ${formData.get("message")}
                 id="description"
                 name="description"
                 rows={3}
-                className="w-full px-4 py-2 bg-[#3B1C32] border border-[#6A1E55] rounded-lg focus:ring-2 focus:ring-[#A64D79] focus:border-transparent text-white"
+                className="w-full px-4 py-2 bg-[#111111] border border-[#252028] rounded-lg focus:ring-2 focus:ring-[#4a4052]/50 focus:border-[#3d3545] text-white"
                 required
               ></textarea>
             </div>
@@ -191,7 +191,7 @@ Mensaje adicional: ${formData.get("message")}
                 </label>
                 <select
                   name="domain"
-                  className="w-full px-4 py-2 bg-[#3B1C32] border border-[#6A1E55] rounded-lg focus:ring-2 focus:ring-[#A64D79] focus:border-transparent text-white"
+                  className="w-full px-4 py-2 bg-[#111111] border border-[#252028] rounded-lg focus:ring-2 focus:ring-[#4a4052]/50 focus:border-[#3d3545] text-white"
                   required
                 >
                   <option value="">Selecciona una opción</option>
@@ -211,7 +211,7 @@ Mensaje adicional: ${formData.get("message")}
                   type="text"
                   id="deadline"
                   name="deadline"
-                  className="w-full px-4 py-2 bg-[#3B1C32] border border-[#6A1E55] rounded-lg focus:ring-2 focus:ring-[#A64D79] focus:border-transparent text-white"
+                  className="w-full px-4 py-2 bg-[#111111] border border-[#252028] rounded-lg focus:ring-2 focus:ring-[#4a4052]/50 focus:border-[#3d3545] text-white"
                   placeholder="Ej: 1 mes, lo antes posible, etc."
                 />
               </div>
@@ -227,12 +227,12 @@ Mensaje adicional: ${formData.get("message")}
                 id="message"
                 name="message"
                 rows={3}
-                className="w-full px-4 py-2 bg-[#3B1C32] border border-[#6A1E55] rounded-lg focus:ring-2 focus:ring-[#A64D79] focus:border-transparent text-white"
+                className="w-full px-4 py-2 bg-[#111111] border border-[#252028] rounded-lg focus:ring-2 focus:ring-[#4a4052]/50 focus:border-[#3d3545] text-white"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full bg-[#A64D79] text-white py-3 px-6 rounded-lg hover:bg-[#6A1E55] transition-colors font-bold text-lg"
+              className="w-full bg-[#1f1a22] text-white py-3 px-6 rounded-lg border border-[#2f2838] hover:bg-[#2a232e] hover:border-[#3d3545] transition-colors font-bold text-lg"
             >
               Enviar mensaje
             </button>

@@ -32,7 +32,7 @@ export function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-20 bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D]"
+      className="py-20 bg-black"
     >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">
@@ -50,7 +50,7 @@ export function Testimonials() {
             return (
               <div
                 key={idx}
-                className="bg-[#1A1A1D] p-8 rounded-xl shadow-lg border border-[#6A1E55]"
+                className="bg-[#0a0a0a] p-8 rounded-xl shadow-lg border border-[#252028]"
               >
                 <div className="mb-4">
                   <h3 className="font-bold text-lg text-white">
@@ -67,7 +67,7 @@ export function Testimonials() {
                     {showShort ? shortText : testimonial.content}
                     {isTextLong && (
                       <button
-                        className="ml-2 text-[#A64D79] underline"
+                        className="ml-2 text-[#6f5f78] underline"
                         onClick={() =>
                           setExpanded(expanded === idx ? null : idx)
                         }

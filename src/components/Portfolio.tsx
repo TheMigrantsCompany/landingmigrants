@@ -6,9 +6,9 @@ import { useRef } from "react";
 interface Project {
   title: string;
   description: string;
-  image: string;
-  videoUrl?: string; // URL del video (opcional)
-  link: string;
+  image?: string;
+  videoUrl?: string;
+  link?: string;
 }
 
 export function Portfolio() {
@@ -31,22 +31,32 @@ export function Portfolio() {
       videoUrl: "/feria-fotografia-demo.mp4",
       link: "https://www.feriadefotografia.com/",
     },
+    {
+      title: "Amarus Design",
+      description:
+        "Desarrollo web para una marca de diseño con una identidad visual definida. El sitio combina estética y funcionalidad, con una estructura clara que permite recorrer el contenido de forma fluida y ordenada. Cuenta con un panel de autogestión para actualizar contenido, manejo de usuarios y ordenes de compra de manera simple.",
+      videoUrl: "/amarus-demo.mp4",
+    },
   ];
 
   return (
     <section
       id="portfolio"
-      className="py-20 bg-gradient-to-b from-[#1A1A1D] via-[#3B1C32] to-[#1A1A1D]"
+      className="py-20 bg-black"
     >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Proyectos Destacados
+          PROYECTOS
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-[#3B1C32] rounded-xl shadow-lg overflow-hidden border border-[#6A1E55]"
+              className={`bg-[#0a0a0a] rounded-xl shadow-lg overflow-hidden border border-[#252028] ${
+                index === projects.length - 1 && projects.length % 2 === 1
+                  ? "md:col-span-2 md:mx-auto w-full max-w-2xl"
+                  : ""
+              }`}
               onMouseEnter={() => {
                 if (videoRefs.current[index]) videoRefs.current[index]?.play();
               }}
@@ -54,7 +64,7 @@ export function Portfolio() {
                 if (videoRefs.current[index]) videoRefs.current[index]?.pause();
               }}
             >
-              <div className="relative h-64 bg-[#1A1A1D]">
+              <div className="relative h-64 bg-[#111111]">
                 {project.videoUrl ? (
                   <video
                     ref={(el) => {
@@ -65,32 +75,34 @@ export function Portfolio() {
                     muted
                     loop
                     playsInline
-                    poster={project.image}
+                    poster={project.image ?? undefined}
                   >
                     Tu navegador no soporta el elemento de video.
                   </video>
-                ) : (
+                ) : project.image ? (
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     className="object-contain p-4"
                   />
-                )}
+                ) : null}
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 text-white">
                   {project.title}
                 </h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
-                <a
-                  href={project.link}
-                  className="text-[#A64D79] hover:text-[#6A1E55] font-semibold transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ver proyecto →
-                </a>
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    className="text-[#5a4d62] hover:text-[#6f5f78] font-semibold transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver proyecto →
+                  </a>
+                ) : null}
               </div>
             </div>
           ))}

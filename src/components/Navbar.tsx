@@ -53,10 +53,10 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="fixed w-full bg-[#1A1A1D]/80 backdrop-blur-sm z-50 py-4">
+      <nav className="fixed w-full bg-black/85 backdrop-blur-sm z-50 py-4 border-b border-white/[0.06]">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <h1 className="text-base font-normal text-gray-300">
-            <a href="#" className="hover:text-[#A64D79] transition-colors">
+            <a href="#" className="hover:text-[#6f5f78] transition-colors">
               Iara Baudino Web Developer
             </a>
           </h1>
@@ -67,7 +67,7 @@ export function Navbar() {
                 key={index}
                 href={link.href}
                 onClick={(e) => handleScroll(e, link.href)}
-                className="text-white hover:text-[#A64D79] transition-colors cursor-pointer"
+                className="text-white hover:text-[#6f5f78] transition-colors cursor-pointer"
               >
                 {link.text}
               </a>
@@ -124,9 +124,9 @@ export function Navbar() {
           {/* Menú lateral */}
           <div
             ref={menuRef}
-            className="fixed top-0 right-0 h-full w-2/3 max-w-xs border-l border-[#A64D79]/30 flex flex-col items-start px-6 gap-8 shadow-lg animate-slide-in-right z-50 md:hidden menu-lateral-opaco"
+            className="fixed top-0 right-0 h-full w-2/3 max-w-xs border-l border-[#2f2838] flex flex-col items-start px-6 gap-8 shadow-lg animate-slide-in-right z-50 md:hidden menu-lateral-opaco"
           >
-            <div className="w-full py-6 border-b border-[#A64D79]/30">
+            <div className="w-full py-6 border-b border-[#2f2838]">
               <span className="text-white font-bold">Menú</span>
             </div>
             <div className="flex flex-col gap-8 w-full mt-4">
@@ -135,7 +135,7 @@ export function Navbar() {
                   key={index}
                   href={link.href}
                   onClick={(e) => handleScroll(e, link.href)}
-                  className="text-white text-lg font-medium hover:text-[#A64D79] transition-colors cursor-pointer w-full"
+                  className="text-white text-lg font-medium hover:text-[#6f5f78] transition-colors cursor-pointer w-full"
                 >
                   {link.text}
                 </a>
