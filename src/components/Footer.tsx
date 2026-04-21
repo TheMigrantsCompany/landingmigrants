@@ -3,7 +3,7 @@ import { IconPhone, IconMail } from "@tabler/icons-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-black border-t border-[#1a181c] py-6 relative z-50">
+    <footer className="relative z-40 w-full border-t border-[#1a181c] bg-black py-6 md:pl-16">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-gray-400 text-sm gap-2">
         <div className="flex flex-col md:flex-row md:items-center gap-2">
           <a

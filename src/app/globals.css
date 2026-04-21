@@ -159,6 +159,13 @@ body {
   overflow-x: hidden;
 }
 
+/* Anclas: no quedar bajo la barra fija superior en móvil */
+@media (max-width: 767px) {
+  section {
+    scroll-margin-top: 3.5rem;
+  }
+}
+
 /* Optimización para mobile */
 @media (max-width: 640px) {
   section::before,

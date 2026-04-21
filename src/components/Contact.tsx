@@ -2,10 +2,12 @@
 import { useState, useRef } from "react";
 
 const SERVICES = [
+  "Menús Digitales con QR",
+  "Portfolio para Fotógrafos",
   "Landing Page",
   "Sitio Institucional",
   "Sitio con Blog",
-  "E-commerce Básico",
+  "E-commerce",
   "Sitio a Medida",
 ];
 
@@ -31,7 +33,7 @@ export function Contact() {
 Nombre: ${formData.get("name")}
 Email: ${formData.get("email")}
 Teléfono: ${formData.get("phone")}
-Servicios: ${selectedServices.join(", ")}
+Productos / servicios: ${selectedServices.join(", ")}
 Descripción: ${formData.get("description")}
 Dominio/Hosting: ${formData.get("domain")}
 Plazo estimado: ${formData.get("deadline")}
@@ -144,10 +146,10 @@ Mensaje adicional: ${formData.get("message")}
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Selecciona el/los tipo(s) de servicio que te interesan
+                  Productos o servicios que te interesan
                 </label>
                 <p className="text-xs text-gray-400 mb-2">
-                  Puedes seleccionar más de una opción
+                  Podés elegir más de una opción
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {SERVICES.map((service) => (

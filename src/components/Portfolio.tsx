@@ -36,6 +36,14 @@ export function Portfolio() {
       description:
         "Desarrollo web para una marca de diseño con una identidad visual definida. El sitio combina estética y funcionalidad, con una estructura clara que permite recorrer el contenido de forma fluida y ordenada. Cuenta con un panel de autogestión para actualizar contenido, manejo de usuarios y ordenes de compra de manera simple.",
       videoUrl: "/amarus-demo.mp4",
+      link: "https://www.amarusdesign.com/",
+    },
+    {
+      title: "Norte Sur Travel",
+      description:
+        "Desarrollo web para una agencia de viajes con una amplia oferta de destinos y paquetes turísticos. El sitio organiza el contenido de forma clara y accesible, permitiendo recorrer distintas opciones y promociones de manera simple y ordenada. Cuenta con un panel de autogestión para actualizar destinos, precios y contenido de forma ágil. Está optimizado para una correcta visualización en todos los dispositivos.",
+      videoUrl: "/demo-nortesur.mp4",
+      link: "https://www.nortesurtravel.com.ar/",
     },
   ];
 

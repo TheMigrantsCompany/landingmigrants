@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen">
+      <main id="contenido" className="min-h-screen md:pl-16">
         <Hero />
         <About />
         <Services />

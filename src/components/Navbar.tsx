@@ -7,6 +7,9 @@ interface NavLink {
   text: string;
 }
 
+/** Ancho del rail; debe coincidir con md:pl-16 en page.tsx y Footer.tsx */
+const SIDEBAR_W = "w-16";
+
 export function Navbar() {
   const links: NavLink[] = [
     { href: "#about", text: "Sobre Mí" },
@@ -19,7 +22,6 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Cierra el menú si se hace click fuera
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -48,94 +50,123 @@ export function Navbar() {
         block: "start",
       });
     }
-    setMenuOpen(false); // Cierra el menú al hacer click en un link
+    setMenuOpen(false);
   };
+
+  const verticalText =
+    "[writing-mode:vertical-lr] [text-orientation:mixed] whitespace-nowrap";
+
+  const linkClassDesktop = `flex shrink-0 items-center justify-center rounded-sm py-2 text-base font-medium tracking-wide text-white/90 transition-colors cursor-pointer border-r-2 border-transparent hover:bg-white/[0.03] hover:text-[#6f5f78] hover:border-[#5a4d62]/60 ${verticalText}`;
 
   return (
     <>
-      <nav className="fixed w-full bg-black/85 backdrop-blur-sm z-50 py-4 border-b border-white/[0.06]">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <h1 className="text-base font-normal text-gray-300">
-            <a href="#" className="hover:text-[#6f5f78] transition-colors">
-              Iara Baudino Web Developer
-            </a>
-          </h1>
-          {/* Menú desktop */}
-          <div className="hidden md:flex gap-6">
-            {links.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                onClick={(e) => handleScroll(e, link.href)}
-                className="text-white hover:text-[#6f5f78] transition-colors cursor-pointer"
-              >
-                {link.text}
-              </a>
-            ))}
-          </div>
-          {/* Botón hamburguesa mobile */}
-          <button
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none"
-            onClick={() => setMenuOpen((open) => !open)}
-            aria-label="Abrir menú"
+      {/* Escritorio: barra vertical izquierda */}
+      <nav
+        className={`fixed left-0 top-0 z-50 hidden h-screen ${SIDEBAR_W} flex-col border-r border-white/[0.06] bg-black/95 backdrop-blur-md py-4 md:flex`}
+        aria-label="Navegación principal"
+      >
+        <div className="flex shrink-0 flex-col items-center px-1 pb-4 pt-1">
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="text-center text-sm font-bold uppercase tracking-[0.12em] text-gray-300 transition-colors hover:text-[#6f5f78]"
           >
-            <span
-              className={`block w-6 h-0.5 bg-white mb-1 transition-all ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-6 h-0.5 bg-white mb-1 transition-all ${
-                menuOpen ? "opacity-0" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            ></span>
-          </button>
+            HOME
+          </a>
         </div>
-        {/* Animación para el menú mobile */}
-        <style jsx global>{`
-          @keyframes slide-in-right {
-            from {
-              transform: translateX(100%);
-              opacity: 0;
-            }
-            to {
-              transform: translateX(0);
-              opacity: 1;
-            }
-          }
-          .animate-slide-in-right {
-            animation: slide-in-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          }
-        `}</style>
+        <div className="flex min-h-0 flex-1 flex-col items-stretch justify-center gap-5">
+          {links.map((link, index) => (
+            <a
+              key={index}
+              href={link.href}
+              onClick={(e) => handleScroll(e, link.href)}
+              className={linkClassDesktop}
+            >
+              {link.text}
+            </a>
+          ))}
+        </div>
       </nav>
-      {/* Menú mobile desplegable y overlay FUERA del nav */}
+
+      {/* Móvil: barra superior */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex h-14 items-center justify-between border-b border-white/[0.06] bg-black/85 px-4 backdrop-blur-sm md:hidden">
+        <h1 className="text-sm font-normal text-gray-300">
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="hover:text-[#6f5f78] transition-colors"
+          >
+            Iara Baudino
+          </a>
+        </h1>
+        <button
+          type="button"
+          className="flex h-8 w-8 flex-col items-center justify-center focus:outline-none"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+        >
+          <span
+            className={`mb-1 block h-0.5 w-6 bg-white transition-all ${
+              menuOpen ? "translate-y-2 rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`mb-1 block h-0.5 w-6 bg-white transition-all ${
+              menuOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-6 bg-white transition-all ${
+              menuOpen ? "-translate-y-2 -rotate-45" : ""
+            }`}
+          />
+        </button>
+      </nav>
+
+      <style jsx global>{`
+        @keyframes slide-in-left {
+          from {
+            transform: translateX(-100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        .animate-slide-in-left {
+          animation: slide-in-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      `}</style>
+
       {menuOpen && (
         <>
-          {/* Overlay */}
           <div
-            className="fixed inset-0 bg-black/80 z-40 md:hidden"
+            className="fixed inset-0 z-40 bg-black/80 md:hidden"
             onClick={() => setMenuOpen(false)}
+            aria-hidden
           />
-          {/* Menú lateral */}
           <div
             ref={menuRef}
-            className="fixed top-0 right-0 h-full w-2/3 max-w-xs border-l border-[#2f2838] flex flex-col items-start px-6 gap-8 shadow-lg animate-slide-in-right z-50 md:hidden menu-lateral-opaco"
+            className="menu-lateral-opaco fixed left-0 top-0 z-50 flex h-full w-[min(85vw,20rem)] max-w-xs flex-col gap-8 border-r border-[#2f2838] px-6 shadow-lg animate-slide-in-left md:hidden"
           >
-            <div className="w-full py-6 border-b border-[#2f2838]">
-              <span className="text-white font-bold">Menú</span>
+            <div className="flex w-full items-center justify-between border-b border-[#2f2838] py-6">
+              <span className="font-bold text-white">Menú</span>
             </div>
-            <div className="flex flex-col gap-8 w-full mt-4">
+            <div className="flex w-full flex-col gap-6">
               {links.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
                   onClick={(e) => handleScroll(e, link.href)}
-                  className="text-white text-lg font-medium hover:text-[#6f5f78] transition-colors cursor-pointer w-full"
+                  className="w-full cursor-pointer text-lg font-medium text-white transition-colors hover:text-[#6f5f78]"
                 >
                   {link.text}
                 </a>
