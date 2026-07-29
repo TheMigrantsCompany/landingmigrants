@@ -1,41 +1,34 @@
 import { capabilities } from "@/content/site";
 import { Section } from "@/components/ui/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/Motion";
 
 export function Capabilities() {
   return (
-    <Section id="capacidades" className="relative overflow-hidden bg-surface-subtle">
-      <div
-        className="pointer-events-none absolute inset-0 bg-grid opacity-40"
-        aria-hidden
-      />
-
+    <Section id="capacidades">
       <FadeIn>
-        <SectionHeading
-          eyebrow="Qué construimos"
-          title="Capacidades para plataformas ambiciosas."
-          description="No vendemos horas ni páginas. Diseñamos e implementamos la tecnología que tu plataforma necesita para existir y escalar."
-        />
+        <p className="mb-4 text-xs font-medium tracking-[0.22em] text-ink uppercase">
+          Capacidades
+        </p>
+        <h2 className="font-display max-w-2xl text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          Criterio de producto. Ingeniería que escala.
+        </h2>
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+          Aplicamos lo aprendido construyendo productos propios. No vendemos
+          tareas: resolvemos la arquitectura y la ejecución de productos
+          digitales.
+        </p>
       </FadeIn>
 
-      <Stagger className="relative grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-        {capabilities.map((item, index) => (
+      <Stagger className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 md:mt-20">
+        {capabilities.map((item) => (
           <StaggerItem key={item.title}>
-            <article className="group flex h-full flex-col bg-background p-8 transition-colors duration-300 hover:bg-surface md:p-10">
-              <span className="font-mono text-xs text-ink/50">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="font-display mt-5 text-xl font-semibold tracking-tight text-foreground">
+            <article>
+              <h3 className="font-display text-lg font-semibold tracking-tight text-foreground">
                 {item.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {item.description}
               </p>
-              <span
-                className="mt-8 h-px w-8 bg-border-strong transition-all duration-300 group-hover:w-14 group-hover:bg-ink/50"
-                aria-hidden
-              />
             </article>
           </StaggerItem>
         ))}

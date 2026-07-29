@@ -1,14 +1,13 @@
 "use client";
 
 import { FormEvent, useRef, useState } from "react";
-import { brand, budgetRanges, projectTypes } from "@/content/site";
+import { brand, hero, projectTypes } from "@/content/site";
 import { Section } from "@/components/ui/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn } from "@/components/ui/Motion";
 import { Button } from "@/components/ui/Button";
 
 const inputClass =
-  "w-full rounded-md border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors focus:border-ink focus:outline-none focus:ring-2 focus:ring-[var(--ring)]";
+  "w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors focus:border-ink focus:outline-none focus:ring-2 focus:ring-[var(--ring)]";
 
 const labelClass = "mb-2 block text-sm font-medium text-foreground";
 
@@ -40,11 +39,10 @@ export function Contact() {
     payload.set("nombre", String(formData.get("name") || ""));
     payload.set("email", String(formData.get("email") || ""));
     payload.set("tipo_proyecto", String(formData.get("projectType") || ""));
-    payload.set("presupuesto", String(formData.get("budget") || ""));
     payload.set("mensaje", String(formData.get("message") || ""));
     payload.set(
       "_subject",
-      `IB TechLabs — Consulta de ${formData.get("company") || formData.get("name")}`
+      `IB TechLabs — ${formData.get("company") || formData.get("name")}`
     );
 
     try {
@@ -66,36 +64,39 @@ export function Contact() {
   };
 
   return (
-    <Section id="contacto" className="bg-surface-subtle">
+    <Section id="contacto">
       <FadeIn>
-        <SectionHeading
-          eyebrow="Contacto"
-          title="Hablemos de tu plataforma."
-          description="Contanos qué querés construir. Respondemos con foco en alcance, enfoque y próximos pasos."
-        />
+        <p className="mb-4 text-xs font-medium tracking-[0.22em] text-ink uppercase">
+          Contacto
+        </p>
+        <h2 className="font-display max-w-2xl text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          Hablemos de tu producto.
+        </h2>
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+          Contanos qué querés construir. Respondemos con foco en alcance y
+          próximos pasos.
+        </p>
+        <p className="mt-4 max-w-xl text-sm text-muted">{hero.trustLine}</p>
       </FadeIn>
 
       <FadeIn delay={0.08}>
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto mt-14 max-w-2xl md:mt-16">
           {status === "success" ? (
             <div
               role="status"
-              className="mb-8 border border-border bg-background px-5 py-4 text-sm text-foreground"
+              className="mb-8 border border-border bg-surface-subtle px-5 py-4 text-sm text-foreground"
             >
-              Recibimos tu mensaje. El equipo de IB TechLabs te va a contactar a
-              la brevedad.
+              Recibimos tu mensaje. IB TechLabs te contactará a la brevedad.
             </div>
           ) : null}
 
           {status === "error" ? (
             <div
               role="alert"
-              className="mb-8 border border-border bg-background px-5 py-4 text-sm text-foreground"
+              className="mb-8 border border-border bg-surface-subtle px-5 py-4 text-sm text-foreground"
             >
               No pudimos enviar el mensaje.
-              {!endpoint
-                ? " El formulario aún no está conectado. "
-                : " "}
+              {!endpoint ? " El formulario aún no está conectado. " : " "}
               Escribinos a{" "}
               <a
                 href={`mailto:${brand.email}`}
@@ -107,11 +108,7 @@ export function Contact() {
             </div>
           ) : null}
 
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="space-y-6 border border-border bg-background p-6 md:p-10"
-          >
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="sm:col-span-2">
                 <label htmlFor="company" className={labelClass}>
@@ -124,7 +121,7 @@ export function Contact() {
                   required
                   autoComplete="organization"
                   className={inputClass}
-                  placeholder="Nombre de la empresa o proyecto"
+                  placeholder="Nombre de la empresa"
                 />
               </div>
 
@@ -156,9 +153,9 @@ export function Contact() {
                 />
               </div>
 
-              <div>
+              <div className="sm:col-span-2">
                 <label htmlFor="projectType" className={labelClass}>
-                  Tipo de proyecto
+                  Qué querés construir
                 </label>
                 <select
                   id="projectType"
@@ -177,28 +174,6 @@ export function Contact() {
                   ))}
                 </select>
               </div>
-
-              <div>
-                <label htmlFor="budget" className={labelClass}>
-                  Presupuesto estimado
-                </label>
-                <select
-                  id="budget"
-                  name="budget"
-                  required
-                  className={inputClass}
-                  defaultValue=""
-                >
-                  <option value="" disabled>
-                    Seleccioná un rango
-                  </option>
-                  {budgetRanges.map((range) => (
-                    <option key={range} value={range}>
-                      {range}
-                    </option>
-                  ))}
-                </select>
-              </div>
             </div>
 
             <div>
@@ -211,7 +186,7 @@ export function Contact() {
                 rows={5}
                 required
                 className={inputClass}
-                placeholder="Contanos el problema, la plataforma y el contexto."
+                placeholder="El problema, el producto y el contexto."
               />
             </div>
 

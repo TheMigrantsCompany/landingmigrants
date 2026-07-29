@@ -1,17 +1,18 @@
-import { brand, ecosystem, navLinks } from "@/content/site";
+import { brand, products, navLinks } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const owned = products.filter((p) => p.featured && p.href);
 
   return (
-    <footer className="border-t border-border bg-surface-subtle">
+    <footer className="border-t border-border bg-background">
       <Container className="py-14 md:py-16">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <a href="#inicio" className="inline-flex" aria-label={brand.name}>
-              <Logo size={56} />
+              <Logo size={48} />
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               {brand.tagline}
@@ -33,6 +34,14 @@ export function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="#contacto"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Contacto
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -60,35 +69,34 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            <p className="mt-6 text-xs font-medium uppercase tracking-[0.16em] text-muted">
-              Ecosistema
-            </p>
-            <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
-              {ecosystem.map((item) => (
-                <li key={item.id}>
-                  {item.href && item.href.startsWith("http") ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="transition-colors hover:text-foreground"
-                    >
-                      {item.name}
-                    </a>
-                  ) : (
-                    <span>{item.name}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
+            {owned.length > 0 ? (
+              <>
+                <p className="mt-6 text-xs font-medium uppercase tracking-[0.16em] text-muted">
+                  Productos
+                </p>
+                <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
+                  {owned.map((p) => (
+                    <li key={p.id}>
+                      <a
+                        href={p.href!}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors hover:text-foreground"
+                      >
+                        {p.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-border pt-8 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 border-t border-border pt-8 text-xs text-muted">
           <p>
             © {year} {brand.name}. Todos los derechos reservados.
           </p>
-          <p>Fundadora: {brand.founder.name}</p>
         </div>
       </Container>
     </footer>

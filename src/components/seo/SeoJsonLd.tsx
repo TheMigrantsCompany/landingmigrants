@@ -33,7 +33,7 @@ function buildGraph() {
         url,
         email: brand.email,
         description:
-          "Estudio de ingeniería de software y diseño de plataformas. Construimos plataformas SaaS, marketplaces y sistemas digitales con propósito.",
+          "Estudio de ingeniería especializado en diseñar, desarrollar y escalar productos digitales.",
         foundingDate: "2024",
         founder: {
           "@type": "Person",
@@ -44,10 +44,7 @@ function buildGraph() {
           "@type": "Country",
           name: "Argentina",
         },
-        sameAs: [
-          "https://www.estuveahi.com.ar",
-          brand.whatsapp,
-        ],
+        sameAs: ["https://www.estuveahi.com.ar", brand.whatsapp],
         knowsAbout: capabilities.map((c) => c.title),
       },
       {
@@ -56,7 +53,7 @@ function buildGraph() {
         name: brand.name,
         url,
         description:
-          "Diseño de plataformas, ingeniería de software y desarrollo de plataformas digitales, SaaS y marketplaces.",
+          "Ingeniería de producto, arquitectura de software y desarrollo de plataformas SaaS, marketplaces y sistemas escalables.",
         provider: { "@id": `${url}#organization` },
         areaServed: {
           "@type": "Country",
@@ -73,7 +70,7 @@ function buildGraph() {
               url: estuveahi.href,
               applicationCategory: "BusinessApplication",
               operatingSystem: "Web",
-              description: estuveahi.description,
+              description: estuveahi.solution,
               creator: { "@id": `${url}#organization` },
             },
           ]

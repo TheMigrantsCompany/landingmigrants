@@ -21,13 +21,7 @@ export default function OpenGraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 4,
-          }}
-        >
+        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
           <div
             style={{
               fontSize: 56,
@@ -61,7 +55,7 @@ export default function OpenGraphImage() {
               maxWidth: 900,
             }}
           >
-            Construimos plataformas digitales con propósito.
+            Construimos el producto que tu empresa necesita para crecer.
           </div>
           <div style={{ fontSize: 22, color: "#a3a3a3", maxWidth: 720 }}>
             {brand.tagline}

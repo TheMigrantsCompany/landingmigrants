@@ -29,22 +29,22 @@ const syne = Syne({
 const siteUrl = getSiteUrl().replace(/\/$/, "");
 const homeUrl = `${siteUrl}/`;
 
-const title = `${brand.name} | Estudio de plataformas digitales`;
+const title = `${brand.name} | Ingeniería de productos digitales`;
 const description =
-  "Diseñamos, desarrollamos y escalamos plataformas SaaS, marketplaces y sistemas digitales con foco en experiencia de usuario, ingeniería y visión de largo plazo.";
+  "Diseñamos, desarrollamos y escalamos productos digitales. Creamos plataformas propias —como EstuveAhí— y ayudamos a empresas a construir las suyas con criterio de producto e ingeniería sólida.";
 
 const keywords = [
   "IB TechLabs",
-  "desarrollo de plataformas digitales",
+  "ingeniería de productos digitales",
+  "desarrollo de productos digitales",
   "plataformas digitales",
   "ingeniería de software",
-  "diseño de plataformas",
   "SaaS",
   "marketplace",
-  "desarrollo Full Stack",
+  "arquitectura de software",
   "estudio tecnológico Argentina",
   "EstuveAhí",
-  "plataformas a medida",
+  "productos digitales",
 ];
 
 export const metadata: Metadata = {
