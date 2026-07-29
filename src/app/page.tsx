@@ -1,25 +1,29 @@
-import { Navbar } from '@/components/Navbar'
-import { Hero } from '@/components/Hero'
-import { About } from '@/components/About'
-import { Services } from '@/components/Services'
-import { Portfolio } from '@/components/Portfolio'
-import { Testimonials } from '@/components/Testimonials'
-import { Contact } from '@/components/Contact'
-import { CallToAction } from '@/components/CallToAction'
+import { Hero } from "@/components/sections/Hero";
+import { Manifesto } from "@/components/sections/Manifesto";
+import { Products } from "@/components/sections/Products";
+import { Capabilities } from "@/components/sections/Capabilities";
+import { Process } from "@/components/sections/Process";
+import { Technologies } from "@/components/sections/Technologies";
+import { Cases } from "@/components/sections/Cases";
+import { Ecosystem } from "@/components/sections/Ecosystem";
+import { Founder } from "@/components/sections/Founder";
+import { ClosingCta } from "@/components/sections/ClosingCta";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main id="contenido" className="min-h-screen md:pl-16">
-        <Hero />
-        <About />
-        <Services />
-        <Portfolio />
-        <Testimonials />
-        <Contact />
-        <CallToAction />
-      </main>
-    </>
+    <main id="contenido">
+      <Hero />
+      <Manifesto />
+      <Products />
+      <Capabilities />
+      <Process />
+      <Technologies />
+      <Cases />
+      <Ecosystem />
+      <Founder />
+      <ClosingCta />
+      <Contact />
+    </main>
   );
 }
