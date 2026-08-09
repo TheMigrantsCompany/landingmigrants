@@ -17,7 +17,7 @@ export function Section({
   as: Tag = "section",
 }: SectionProps) {
   return (
-    <Tag id={id} className={`py-24 md:py-32 ${className}`}>
+    <Tag id={id} className={`py-16 md:py-20 ${className}`}>
       <Container className={containerClassName}>{children}</Container>
     </Tag>
   );

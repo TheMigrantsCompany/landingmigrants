@@ -6,12 +6,12 @@ export function Manifesto() {
   return (
     <Section id="creemos" className="bg-surface-subtle">
       <FadeIn>
-        <p className="mb-12 text-xs font-medium tracking-[0.22em] text-ink uppercase md:mb-16">
+        <p className="mb-8 text-xs font-medium tracking-[0.22em] text-ink uppercase md:mb-10">
           {manifesto.eyebrow}
         </p>
       </FadeIn>
 
-      <Stagger className="max-w-3xl space-y-10 md:space-y-12">
+      <Stagger className="max-w-3xl space-y-8 md:space-y-10">
         {manifesto.lines.map((line, index) => (
           <StaggerItem key={line}>
             <p

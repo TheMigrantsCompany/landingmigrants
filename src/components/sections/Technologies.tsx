@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/ui/Motion";
 /** Respaldo técnico: presente, sin protagonismo. */
 export function Technologies() {
   return (
-    <Section id="tecnologias" className="!py-16 md:!py-20">
+    <Section id="tecnologias" className="!py-12 md:!py-14">
       <FadeIn>
         <p className="mb-6 text-xs font-medium tracking-[0.22em] text-muted uppercase">
           Stack

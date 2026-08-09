@@ -19,7 +19,7 @@ export function Capabilities() {
         </p>
       </FadeIn>
 
-      <Stagger className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 md:mt-20">
+      <Stagger className="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 md:mt-12">
         {capabilities.map((item) => (
           <StaggerItem key={item.title}>
             <article>

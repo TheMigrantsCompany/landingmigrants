@@ -1,8 +1,8 @@
 import { Hero } from "@/components/sections/Hero";
-import { Products } from "@/components/sections/Products";
+import { Cases } from "@/components/sections/Cases";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { Capabilities } from "@/components/sections/Capabilities";
-import { Cases } from "@/components/sections/Cases";
+import { Photography } from "@/components/sections/Photography";
 import { Technologies } from "@/components/sections/Technologies";
 import { Contact } from "@/components/sections/Contact";
 
@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <main id="contenido">
       <Hero />
-      <Products />
+      <Cases />
       <Manifesto />
       <Capabilities />
-      <Cases />
+      <Photography />
       <Technologies />
       <Contact />
     </main>

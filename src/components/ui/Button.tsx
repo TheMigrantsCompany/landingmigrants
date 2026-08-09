@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import Link from "next/link";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
@@ -48,8 +49,23 @@ export function ButtonLink({
   href,
   className = "",
 }: LinkButtonProps) {
+  const isInternal = href.startsWith("/") || href.startsWith("#");
+
+  if (isInternal) {
+    return (
+      <Link href={href} className={`${base} ${variants[variant]} ${className}`}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <a href={href} className={`${base} ${variants[variant]} ${className}`}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${base} ${variants[variant]} ${className}`}
+    >
       {children}
     </a>
   );
