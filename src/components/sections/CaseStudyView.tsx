@@ -87,10 +87,10 @@ export function CaseStudyView({ item }: CaseStudyViewProps) {
             </div>
           </dl>
 
-          <div className="mt-16 grid gap-14 md:grid-cols-2">
+          <div className="mt-16 max-w-3xl space-y-14">
             <div>
               <h2 className="text-xs font-medium tracking-[0.16em] text-ink uppercase">
-                Funcionalidades
+                Funcionalidades del producto
               </h2>
               <ul className="mt-5 space-y-3">
                 {item.features.map((feature) => (
@@ -110,7 +110,7 @@ export function CaseStudyView({ item }: CaseStudyViewProps) {
 
             <div>
               <h2 className="text-xs font-medium tracking-[0.16em] text-ink uppercase">
-                Panel de control / operación
+                Paneles de operación
               </h2>
               <ul className="mt-5 space-y-3">
                 {item.admin.map((feature) => (
@@ -163,7 +163,7 @@ export function CaseStudyView({ item }: CaseStudyViewProps) {
         <section className="border-t border-border bg-surface-subtle">
           <Container className="py-14 md:py-16">
             <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
-              Más plataformas del mismo vertical
+              Más plataformas relacionadas
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((c) => (
