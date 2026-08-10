@@ -284,7 +284,7 @@ export const cases: CaseStudy[] = [
     impact:
       "Plataforma comercial operativa (nortesurtravel.com.ar). Ciclo completo: contenido → descubrimiento → consulta → notificación → seguimiento comercial. No solo un sitio institucional: herramienta para presentar oferta, captar oportunidades y administrar la presencia online de forma autónoma.",
     href: "https://nortesurtravel.com.ar",
-    image: null,
+    image: "/nortesur.png",
     summary:
       "Cliente: NorteSur Travel · Argentina. Plataforma comercial para agencia de turismo: catálogo por categorías, CMS editorial y captación de leads con notificación y seguimiento por WhatsApp.",
     features: [
