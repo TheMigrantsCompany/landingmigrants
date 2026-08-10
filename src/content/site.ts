@@ -3,7 +3,7 @@ export const brand = {
   shortName: "IB",
   tagline: "Ingeniería de productos digitales",
   logo: "/1.png",
-  email: "iara.baudino.dev@gmail.com",
+  email: "info@iarabaudinodev.com.ar",
   whatsapp: "https://wa.me/5492901502553",
   whatsappDisplay: "+54 9 2901 502553",
   founder: {
