@@ -28,8 +28,8 @@ export function Cases() {
         </h2>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
           Cada plataforma tiene su propia página para compartir el link según el
-          cliente — por ejemplo Amarus a e-commerce, Meru o Norte Sur a agencias
-          de viajes.
+          cliente — por ejemplo Meru o Norte Sur a agencias de viajes, o YEKA a
+          estudios fotográficos.
         </p>
       </FadeIn>
 
